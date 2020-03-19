@@ -16,4 +16,24 @@ export class Covid19Service {
   getDataColombia() {
     return this.http.get<Covid19[]>(`${environment.URL_API}colombia/status/confirmed`);
   }
+
+  getDataVenezuela() {
+    return this.http.get<Covid19[]>(`${environment.URL_API}venezuela/status/confirmed`);
+  }
+
+  getDataPanama() {
+    return this.http.get<Covid19[]>(`${environment.URL_API}panama/status/confirmed`);
+  }
+
+  getDataEcuador() {
+    return this.http.get<Covid19[]>(`${environment.URL_API}ecuador/status/confirmed`);
+  }
+
+  getDataPeru() {
+    return this.http.get<Covid19[]>(`${environment.URL_API}peru/status/confirmed`);
+  }
+
+  getDataBrasil() {
+    return this.http.get<Covid19[]>(`${environment.URL_API}brazil/status/confirmed`);
+  }
 }
