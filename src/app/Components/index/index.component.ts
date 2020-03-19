@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Covid19Service } from 'src/app/Core/Services/covid19.service';
 import { Covid19 } from 'src/app/Core/Model/Data.model';
-import { GoogleMap } from '@angular/google-maps';
 import { Marker } from 'src/app/Core/Model/Marker.model';
 
 @Component({
@@ -31,13 +30,6 @@ export class IndexComponent implements OnInit {
     {text: ''},
     {text: ''}
   ];
-  labelOptions = {
-    color: 'white',
-    fontFamily: '',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    text: 'Detalles Colombia'
-  };
   markers: Marker[] = [
     {
       lat: 4.6482837,
@@ -80,10 +72,7 @@ export class IndexComponent implements OnInit {
       lat: -12.0266034,
       lng: -77.1278654,
       label: 'Peru',
-      draggable: true,
-      color: 'white',
-      fontSize: '14px',
-      fontWeight: 'bold',
+      draggable: true
     },
     {
       lat: -15.7750837,
@@ -113,48 +102,54 @@ export class IndexComponent implements OnInit {
   getDataColombia() {
     return this.covid19Service.getDataColombia().subscribe(data => {
       this.DataColombia = data as Covid19[];
-      this.text[0].text = `El numero de personas contagiadas a la fecha ${this.DataColombia.slice(-1)[0].Date.substring(0, 10)} es
-      de ${this.DataColombia.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[0].text = `Fecha de publicación del informe: ${this.DataColombia.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataColombia.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
   }
 
   getDataVenezuela() {
     return this.covid19Service.getDataVenezuela().subscribe( data => {
       this.DataVenezuela = data as Covid19[];
-      this.text[1].text = `El numero de personas contagiadas a la fecha ${this.DataVenezuela.slice(-1)[0].Date.substring(0, 10)} es
-      de: ${this.DataVenezuela.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[1].text = `Fecha de publicación del informe: ${this.DataVenezuela.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataVenezuela.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
 
   }
   getDataPanama() {
     return this.covid19Service.getDataPanama().subscribe( data => {
       this.DataPanama = data as Covid19[];
-      this.text[2].text = `El numero de personas contagiadas a la fecha ${this.DataPanama.slice(-1)[0].Date.substring(0, 10)} es
-      de: ${this.DataPanama.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[2].text = `Fecha de publicación del informe: ${this.DataPanama.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataPanama.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
 
   }
   getDataEcuador() {
     return this.covid19Service.getDataEcuador().subscribe( data => {
       this.DataEcuador = data as Covid19[];
-      this.text[3].text = `El numero de personas contagiadas a la fecha ${this.DataEcuador.slice(-1)[0].Date.substring(0, 10)} es
-      de: ${this.DataEcuador.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[3].text = `Fecha de publicación del informe: ${this.DataEcuador.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataEcuador.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
 
   }
   getDataPeru() {
     return this.covid19Service.getDataPeru().subscribe( data => {
       this.DataPeru = data as Covid19[];
-      this.text[4].text = `El numero de personas contagiadas a la fecha ${this.DataPeru.slice(-1)[0].Date.substring(0, 10)} es
-      de: ${this.DataPeru.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[4].text = `Fecha de publicación del informe: ${this.DataPeru.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataPeru.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
 
   }
   getDataBrasil() {
     return this.covid19Service.getDataBrasil().subscribe( data => {
       this.DataBrasil = data as Covid19[];
-      this.text[5].text = `El numero de personas contagiadas a la fecha ${this.DataBrasil.slice(-1)[0].Date.substring(0, 10)} es
-      de: ${this.DataBrasil.slice(-1)[0].Cases}, esta información es suministrada por la API: https://covid19api.com/`;
+      this.text[5].text = `Fecha de publicación del informe: ${this.DataBrasil.slice(-1)[0].Date.substring(0, 10)}. El numero
+      de personas contagiadas (caso confirmado) es de: ${this.DataBrasil.slice(-1)[0].Cases}, esta información es obtenida
+      de la siguiente API: https://covid19api.com/`;
     });
 
   }
